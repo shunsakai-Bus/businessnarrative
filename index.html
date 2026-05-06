@@ -212,6 +212,22 @@ section { position: relative; }
   position: relative;
   overflow: hidden;
 }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 64px;
+  align-items: center;
+  width: 100%;
+}
+.hero-left {}
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1100px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+}
 /* 背景の薄い装飾 */
 #hero::before {
   content: '';
@@ -234,9 +250,9 @@ section { position: relative; }
 .hero-title {
   font-family: var(--font-serif);
   font-weight: 900;
-  font-size: clamp(36px, 5.5vw, 72px);
+  font-size: clamp(28px, 3.6vw, 44px);
   color: #fff;
-  line-height: 1.35;
+  line-height: 1.4;
   letter-spacing: 0.02em;
   margin-bottom: 32px;
 }
@@ -697,46 +713,40 @@ section { position: relative; }
 
 /* 1. ヒーローフロー図 */
 .hero-flow {
-  position: absolute;
-  right: 80px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  width: 100%;
 }
 .hero-flow-box {
-  width: 220px;
   border: 1px solid rgba(255,255,255,0.18);
-  padding: 14px 20px;
+  padding: 18px 24px;
   text-align: center;
   background: rgba(0,27,58,0.5);
 }
 .hero-flow-box .box-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.3em;
   color: rgba(216,242,255,0.5);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .hero-flow-box .box-text {
-  font-size: 12px;
-  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
   letter-spacing: 0.04em;
-  line-height: 1.65;
+  line-height: 1.7;
   font-family: var(--font-sans);
 }
 .hero-flow-arrow {
-  color: rgba(255,255,255,0.2);
-  font-size: 18px;
+  color: rgba(255,255,255,0.22);
+  font-size: 20px;
   line-height: 1;
-  padding: 5px 0;
+  padding: 6px 0;
+  text-align: center;
   font-family: var(--font-mono);
 }
-@media (max-width: 1100px) { .hero-flow { display: none; } }
 
 /* 2. ロールマップ（ABOUT） */
 .role-map {
@@ -906,34 +916,41 @@ section { position: relative; }
 <!-- ===================== 01 HERO ===================== -->
 <section id="hero">
   <div class="container">
-    <p class="hero-eyebrow">NARRATIVE ARCHITECT — 酒井 駿</p>
-    <h1 class="hero-title">
-      <span class="br">企業固有の<span class="em">"らしさ"</span>を言語化し、</span>
-      <span class="br">発信・営業・採用で</span>
-      <span class="br">使える形に整える。</span>
-    </h1>
-    <p class="hero-sub">
-      経営者の体験・判断の積み重ねから、<br>
-      その会社だけにしか言えない価値の軸を引き出す。<br>
-      人にもAIにも渡せる事業資産をつくります。
-    </p>
-    <a href="#contact" class="hero-cta">お問い合わせ・ご相談</a>
-  </div>
-  <!-- ヒーローフロー図：素材が言葉になる流れ -->
-  <div class="hero-flow" aria-hidden="true">
-    <div class="hero-flow-box">
-      <p class="box-label">INPUT</p>
-      <p class="box-text">経営者の言葉<br>事業の背景・顧客との接点</p>
-    </div>
-    <div class="hero-flow-arrow">↓</div>
-    <div class="hero-flow-box">
-      <p class="box-label">STRUCTURE</p>
-      <p class="box-text">企業固有の<br>"らしさ"を整理</p>
-    </div>
-    <div class="hero-flow-arrow">↓</div>
-    <div class="hero-flow-box">
-      <p class="box-label">OUTPUT</p>
-      <p class="box-text">発信・営業・採用で<br>使える言葉へ</p>
+    <div class="hero-inner">
+      <!-- 左：テキスト -->
+      <div class="hero-left">
+        <p class="hero-eyebrow">NARRATIVE ARCHITECT — 酒井 駿</p>
+        <h1 class="hero-title">
+          <span class="br">企業固有の<span class="em">"らしさ"</span>を言語化し、</span>
+          <span class="br">発信・営業・採用で</span>
+          <span class="br">使える形に整える。</span>
+        </h1>
+        <p class="hero-sub">
+          経営者の体験・判断の積み重ねから、<br>
+          その会社だけにしか言えない価値の軸を引き出す。<br>
+          人にもAIにも渡せる事業資産をつくります。
+        </p>
+        <a href="#contact" class="hero-cta">お問い合わせ・ご相談</a>
+      </div>
+      <!-- 右：フロー図 -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-flow">
+          <div class="hero-flow-box">
+            <p class="box-label">INPUT</p>
+            <p class="box-text">経営者の言葉<br>事業の背景・顧客との接点</p>
+          </div>
+          <div class="hero-flow-arrow">↓</div>
+          <div class="hero-flow-box">
+            <p class="box-label">STRUCTURE</p>
+            <p class="box-text">企業固有の<br>"らしさ"を整理</p>
+          </div>
+          <div class="hero-flow-arrow">↓</div>
+          <div class="hero-flow-box">
+            <p class="box-label">OUTPUT</p>
+            <p class="box-text">発信・営業・採用で<br>使える言葉へ</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
