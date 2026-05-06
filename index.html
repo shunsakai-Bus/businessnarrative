@@ -695,17 +695,48 @@ section { position: relative; }
    ビジュアル強化要素
 ===================== */
 
-/* 1. ヒーロー構造図 */
-.hero-diagram {
+/* 1. ヒーローフロー図 */
+.hero-flow {
   position: absolute;
-  right: 72px;
+  right: 80px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
   z-index: 1;
-  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@media (max-width: 1100px) { .hero-diagram { display: none; } }
+.hero-flow-box {
+  width: 220px;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 14px 20px;
+  text-align: center;
+  background: rgba(0,27,58,0.5);
+}
+.hero-flow-box .box-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba(216,242,255,0.5);
+  margin-bottom: 6px;
+}
+.hero-flow-box .box-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.04em;
+  line-height: 1.65;
+  font-family: var(--font-sans);
+}
+.hero-flow-arrow {
+  color: rgba(255,255,255,0.2);
+  font-size: 18px;
+  line-height: 1;
+  padding: 5px 0;
+  font-family: var(--font-mono);
+}
+@media (max-width: 1100px) { .hero-flow { display: none; } }
 
 /* 2. ロールマップ（ABOUT） */
 .role-map {
@@ -888,54 +919,22 @@ section { position: relative; }
     </p>
     <a href="#contact" class="hero-cta">お問い合わせ・ご相談</a>
   </div>
-  <div class="hero-name" aria-hidden="true">
-    <div class="hero-name-ja">酒井駿</div>
-  </div>
-
-  <!-- ヒーロー構造図：暗黙知が発信資産になる図 -->
-  <div class="hero-diagram" aria-hidden="true">
-    <svg width="380" height="340" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- 外周の薄いリング -->
-      <circle cx="190" cy="170" r="148" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-      <circle cx="190" cy="170" r="100" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 6"/>
-      <!-- 中心から外側ノードへのライン -->
-      <line x1="190" y1="170" x2="190" y2="44" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
-      <line x1="190" y1="170" x2="309" y2="107" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
-      <line x1="190" y1="170" x2="309" y2="233" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
-      <line x1="190" y1="170" x2="190" y2="296" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
-      <line x1="190" y1="170" x2="71" y2="233" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
-      <line x1="190" y1="170" x2="71" y2="107" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
-      <!-- 外側ノード間の補助線（薄め） -->
-      <line x1="190" y1="44" x2="309" y2="107" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
-      <line x1="309" y1="107" x2="309" y2="233" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
-      <line x1="309" y1="233" x2="190" y2="296" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
-      <line x1="190" y1="296" x2="71" y2="233" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
-      <line x1="71" y1="233" x2="71" y2="107" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
-      <line x1="71" y1="107" x2="190" y2="44" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
-      <!-- 中心ノード -->
-      <circle cx="190" cy="170" r="46" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
-      <circle cx="190" cy="170" r="42" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-      <text x="190" y="163" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="2">Business</text>
-      <text x="190" y="179" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="2">Narrative</text>
-      <!-- 外側ノード：らしさ -->
-      <circle cx="190" cy="44" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-      <text x="190" y="44" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">らしさ</text>
-      <!-- 価値 -->
-      <circle cx="309" cy="107" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-      <text x="309" y="107" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">価値</text>
-      <!-- 発信 -->
-      <circle cx="309" cy="233" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-      <text x="309" y="233" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">発信</text>
-      <!-- 採用 -->
-      <circle cx="190" cy="296" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-      <text x="190" y="296" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">採用</text>
-      <!-- 営業 -->
-      <circle cx="71" cy="233" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-      <text x="71" y="233" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">営業</text>
-      <!-- 言葉 -->
-      <circle cx="71" cy="107" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-      <text x="71" y="107" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">言葉</text>
-    </svg>
+  <!-- ヒーローフロー図：素材が言葉になる流れ -->
+  <div class="hero-flow" aria-hidden="true">
+    <div class="hero-flow-box">
+      <p class="box-label">INPUT</p>
+      <p class="box-text">経営者の言葉<br>事業の背景・顧客との接点</p>
+    </div>
+    <div class="hero-flow-arrow">↓</div>
+    <div class="hero-flow-box">
+      <p class="box-label">STRUCTURE</p>
+      <p class="box-text">企業固有の<br>"らしさ"を整理</p>
+    </div>
+    <div class="hero-flow-arrow">↓</div>
+    <div class="hero-flow-box">
+      <p class="box-label">OUTPUT</p>
+      <p class="box-text">発信・営業・採用で<br>使える言葉へ</p>
+    </div>
   </div>
 </section>
 
@@ -1393,39 +1392,41 @@ section { position: relative; }
 
     <div class="contact-inner">
       <h2 class="contact-q">
-        まず、<span class="em">話してみる</span>ところから。
+        こんな状態があれば、<br><span class="em">一度話してみてください。</span>
       </h2>
-      <p class="contact-body">
-        初回のご相談（オンラインMTG）は無料です。「自社のナラティブが言語化できているか」を一緒に確認するところから始めましょう。現状のヒアリングと、進め方のご提案をいたします。
-      </p>
-      <!-- 相談前チェックリスト -->
-      <div class="contact-checklist" role="list" aria-label="このような方へ">
+
+      <!-- 悩みチェックリスト（CTAの前に置く） -->
+      <div class="contact-checklist" role="list" aria-label="こんな方へ">
         <div class="check-item" role="listitem">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" flex-shrink="0">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="2,8 6,12 14,4"/>
           </svg>
-          <span>自社の強みをうまく<br>説明できない</span>
+          <span>自社の強みをうまく説明できない</span>
         </div>
         <div class="check-item" role="listitem">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="2,8 6,12 14,4"/>
           </svg>
-          <span>サイトや資料の言葉が<br>しっくりきていない</span>
+          <span>サイトや営業資料の言葉がしっくりきていない</span>
         </div>
         <div class="check-item" role="listitem">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="2,8 6,12 14,4"/>
           </svg>
-          <span>営業・採用・発信で<br>言い方がばらつく</span>
+          <span>営業・採用・発信で言い方がばらつく</span>
         </div>
         <div class="check-item" role="listitem">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="2,8 6,12 14,4"/>
           </svg>
-          <span>代表の考えを事業の<br>言葉に直したい</span>
+          <span>代表者の考えを、事業の言葉に直したい</span>
         </div>
       </div>
 
+      <p class="contact-body">
+        まだ依頼内容が固まっていなくても大丈夫です。<br>
+        初回のご相談（オンラインMTG）は無料です。今の課題を聞いたうえで、どこから整理するとよさそうかを一緒に考えます。
+      </p>
       <a href="mailto:contact@businessnarrative.org" class="contact-btn">お問い合わせフォームへ</a>
       <p class="contact-note">※ いただいたメッセージには数日以内にご返信いたします。</p>
     </div>
