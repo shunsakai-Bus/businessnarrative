@@ -309,15 +309,13 @@ section { position: relative; }
   padding: 120px 0;
 }
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  max-width: 680px;
 }
 .about-left {}
-.about-right {
-  padding-top: 8px;
-}
+.about-right {}
 .about-story {
   font-size: 15px;
   color: var(--ink-soft);
@@ -455,7 +453,7 @@ section { position: relative; }
   letter-spacing: 0.02em;
 }
 @media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-grid { gap: 40px; }
 }
 
 /* =====================
@@ -1212,8 +1210,8 @@ section { position: relative; }
 
       <!-- 成果物補足（小さめ） -->
       <div class="deliverables-note">
-        <p class="deliverables-note-label">必要に応じて整えるもの</p>
-        <p class="deliverables-note-text">ナラティブシート、サイト原稿、営業資料、採用文、インタビュー記事、SNS投稿案、制作指示書</p>
+        <p class="deliverables-note-label">ナラティブブックがあれば、一貫した言葉でつくれるもの</p>
+        <p class="deliverables-note-text">サイト原稿、営業資料、採用文、インタビュー記事、SNS投稿案、制作指示書</p>
       </div>
       <a href="#contact" class="service-link">サービス詳細・お問い合わせ</a>
     </div>
