@@ -690,6 +690,171 @@ section { position: relative; }
   .footer-inner { flex-direction: column; gap: 16px; padding: 0 24px; }
 }
 
+
+/* =====================
+   ビジュアル強化要素
+===================== */
+
+/* 1. ヒーロー構造図 */
+.hero-diagram {
+  position: absolute;
+  right: 72px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+}
+@media (max-width: 1100px) { .hero-diagram { display: none; } }
+
+/* 2. ロールマップ（ABOUT） */
+.role-map {
+  margin-bottom: 36px;
+}
+.role-map-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+/* 3. ステップフロー（SERVICES） */
+.steps-flow {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 48px;
+}
+.step-card {
+  flex: 1;
+  background: var(--blue-pale);
+  border: 1.5px solid rgba(0,43,85,0.2);
+  padding: 30px 24px 28px;
+  text-align: center;
+}
+.step-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  color: var(--navy);
+  flex: none;
+  background: var(--blue-pale);
+  border-top: 1.5px solid rgba(0,43,85,0.2);
+  border-bottom: 1.5px solid rgba(0,43,85,0.2);
+}
+.step-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+.step-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: var(--blue);
+}
+.step-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.step-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  .steps-flow { flex-direction: column; }
+  .step-arrow { justify-content: center; min-height: 24px; border: none; border-left: 1.5px solid rgba(0,43,85,0.2); border-right: 1.5px solid rgba(0,43,85,0.2); }
+}
+
+/* 4. 成果物アイコン群 */
+.deliverable-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.del-icon-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,90,170,0.18);
+}
+.del-icon-item svg { color: var(--blue); flex: none; }
+.del-icon-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* 5. サブサービスアイコン */
+.sub-icon {
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+
+/* 6. WORKSマップ */
+.works-map {
+  background: var(--paper);
+  border: 1.5px solid var(--navy);
+  padding: 32px 40px 28px;
+  margin-bottom: 48px;
+}
+.works-map-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--navy);
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .works-map { padding: 24px 20px; }
+}
+
+/* 7. WORKSカードアイコン */
+.work-tag-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 8. Contactチェックリスト */
+.contact-checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 40px;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+.check-item svg { flex: none; margin-top: 3px; }
+@media (max-width: 768px) {
+  .contact-checklist { grid-template-columns: 1fr; padding: 20px 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -726,6 +891,52 @@ section { position: relative; }
   <div class="hero-name" aria-hidden="true">
     <div class="hero-name-ja">酒井駿</div>
   </div>
+
+  <!-- ヒーロー構造図：暗黙知が発信資産になる図 -->
+  <div class="hero-diagram" aria-hidden="true">
+    <svg width="380" height="340" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- 外周の薄いリング -->
+      <circle cx="190" cy="170" r="148" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <circle cx="190" cy="170" r="100" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 6"/>
+      <!-- 中心から外側ノードへのライン -->
+      <line x1="190" y1="170" x2="190" y2="44" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
+      <line x1="190" y1="170" x2="309" y2="107" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
+      <line x1="190" y1="170" x2="309" y2="233" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
+      <line x1="190" y1="170" x2="190" y2="296" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
+      <line x1="190" y1="170" x2="71" y2="233" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
+      <line x1="190" y1="170" x2="71" y2="107" stroke="rgba(200,225,255,0.22)" stroke-width="1"/>
+      <!-- 外側ノード間の補助線（薄め） -->
+      <line x1="190" y1="44" x2="309" y2="107" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
+      <line x1="309" y1="107" x2="309" y2="233" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
+      <line x1="309" y1="233" x2="190" y2="296" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
+      <line x1="190" y1="296" x2="71" y2="233" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
+      <line x1="71" y1="233" x2="71" y2="107" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
+      <line x1="71" y1="107" x2="190" y2="44" stroke="rgba(200,225,255,0.08)" stroke-width="1"/>
+      <!-- 中心ノード -->
+      <circle cx="190" cy="170" r="46" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+      <circle cx="190" cy="170" r="42" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="190" y="163" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="2">Business</text>
+      <text x="190" y="179" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="2">Narrative</text>
+      <!-- 外側ノード：らしさ -->
+      <circle cx="190" cy="44" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <text x="190" y="44" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">らしさ</text>
+      <!-- 価値 -->
+      <circle cx="309" cy="107" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <text x="309" y="107" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">価値</text>
+      <!-- 発信 -->
+      <circle cx="309" cy="233" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <text x="309" y="233" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">発信</text>
+      <!-- 採用 -->
+      <circle cx="190" cy="296" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <text x="190" y="296" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">採用</text>
+      <!-- 営業 -->
+      <circle cx="71" cy="233" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <text x="71" y="233" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">営業</text>
+      <!-- 言葉 -->
+      <circle cx="71" cy="107" r="24" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <text x="71" y="107" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Noto Sans JP, sans-serif">言葉</text>
+    </svg>
+  </div>
 </section>
 
 <!-- ===================== 02 ABOUT ===================== -->
@@ -760,6 +971,56 @@ section { position: relative; }
 
       <!-- 右：経歴ステップ -->
       <div class="about-right">
+
+        <!-- ロールマップ：Narrative Architectとは何をする人か -->
+        <div class="role-map" aria-hidden="true">
+          <p class="role-map-label">NARRATIVE ARCHITECT — 役割</p>
+          <svg width="300" height="220" viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- 背景円 -->
+            <circle cx="150" cy="110" r="90" stroke="rgba(0,43,85,0.1)" stroke-width="1" stroke-dasharray="4 6"/>
+            <!-- 中心から各ノードへのライン -->
+            <line x1="150" y1="110" x2="150" y2="30" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
+            <line x1="150" y1="110" x2="240" y2="110" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
+            <line x1="150" y1="110" x2="150" y2="190" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
+            <line x1="150" y1="110" x2="60" y2="110" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
+            <!-- 中心ノード -->
+            <circle cx="150" cy="110" r="36" stroke="var(--navy)" stroke-width="1.5"/>
+            <text x="150" y="105" text-anchor="middle" dominant-baseline="middle" fill="#002B55" font-size="10" font-family="Inter, sans-serif" font-weight="700" letter-spacing="1">Narrative</text>
+            <text x="150" y="119" text-anchor="middle" dominant-baseline="middle" fill="#002B55" font-size="10" font-family="Inter, sans-serif" font-weight="700" letter-spacing="1">Architect</text>
+            <!-- 上：聞く -->
+            <circle cx="150" cy="26" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
+            <!-- 吹き出しアイコン -->
+            <path d="M143 20 h14 a3 3 0 0 1 3 3 v6 a3 3 0 0 1-3 3 h-5 l-3 3 v-3 h-6 a3 3 0 0 1-3-3 v-6 a3 3 0 0 1 3-3z" stroke="#005AAA" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="150" y="52" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="10" font-family="Noto Sans JP, sans-serif" font-weight="600">聞く</text>
+            <!-- 右：使える形にする -->
+            <circle cx="244" cy="110" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
+            <!-- ブラウザアイコン -->
+            <rect x="234" y="103" width="20" height="14" rx="2" stroke="#005AAA" stroke-width="1.5" fill="none"/>
+            <line x1="234" y1="107" x2="254" y2="107" stroke="#005AAA" stroke-width="1.5"/>
+            <circle cx="237" cy="105" r="1" fill="#005AAA"/>
+            <circle cx="240" cy="105" r="1" fill="#005AAA"/>
+            <text x="244" y="126" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">使える</text>
+            <text x="244" y="136" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">形に</text>
+            <!-- 下：言葉にする -->
+            <circle cx="150" cy="194" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
+            <!-- ペンアイコン -->
+            <path d="M154 188 l-6 6 -1 3 3-1 6-6z" stroke="#005AAA" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M154 188 l2-2 a1.5 1.5 0 0 1 2 2 l-2 2z" stroke="#005AAA" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="150" y="170" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">言葉に</text>
+            <text x="150" y="180" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">する</text>
+            <!-- 左：整える -->
+            <circle cx="56" cy="110" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
+            <!-- ノードアイコン -->
+            <circle cx="56" cy="105" r="3" stroke="#005AAA" stroke-width="1.5" fill="none"/>
+            <circle cx="48" cy="116" r="2.5" stroke="#005AAA" stroke-width="1.5" fill="none"/>
+            <circle cx="64" cy="116" r="2.5" stroke="#005AAA" stroke-width="1.5" fill="none"/>
+            <line x1="56" y1="108" x2="50" y2="114" stroke="#005AAA" stroke-width="1.5"/>
+            <line x1="56" y1="108" x2="62" y2="114" stroke="#005AAA" stroke-width="1.5"/>
+            <line x1="51" y1="116" x2="62" y2="116" stroke="#005AAA" stroke-width="1.5"/>
+            <text x="56" y="126" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="10" font-family="Noto Sans JP, sans-serif" font-weight="600">整える</text>
+          </svg>
+        </div>
+
         <div class="section-q" style="font-size: clamp(18px, 2vw, 24px); margin-bottom: 32px;">
           どのような経緯で、<br>今の仕事にたどり着いたか
         </div>
@@ -821,6 +1082,63 @@ section { position: relative; }
       </p>
     </div>
 
+    <!-- 支援の3ステップ図 -->
+    <div class="steps-flow" role="list" aria-label="支援の流れ">
+      <div class="step-card" role="listitem">
+        <p class="step-label">01 / LISTEN</p>
+        <div class="step-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 17a10 10 0 0 1-10 10"/>
+            <path d="M5 10.5A9 9 0 0 1 23 10.5v5a3 3 0 0 1-6 0v-5a3 3 0 0 0-6 0v5a9 9 0 0 1-9 0v-5"/>
+            <path d="M14 27v-4"/>
+          </svg>
+        </div>
+        <p class="step-title">聞く</p>
+        <p class="step-desc">経営者・事業責任者の<br>言葉を拾う</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+          <path d="M0 8 h16 M12 3 l6 5 -6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="step-card" role="listitem">
+        <p class="step-label">02 / STRUCTURE</p>
+        <div class="step-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="6" r="3"/>
+            <circle cx="5" cy="22" r="3"/>
+            <circle cx="23" cy="22" r="3"/>
+            <line x1="14" y1="9" x2="7" y2="19"/>
+            <line x1="14" y1="9" x2="21" y2="19"/>
+            <line x1="8" y1="22" x2="20" y2="22"/>
+          </svg>
+        </div>
+        <p class="step-title">構造化する</p>
+        <p class="step-desc">価値・違和感・強みを<br>整理する</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+          <path d="M0 8 h16 M12 3 l6 5 -6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="step-card" role="listitem">
+        <p class="step-label">03 / DELIVER</p>
+        <div class="step-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="22" height="16" rx="2"/>
+            <line x1="3" y1="9" x2="25" y2="9"/>
+            <circle cx="6.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="9.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            <line x1="9" y1="20" x2="9" y2="24"/>
+            <line x1="19" y1="20" x2="19" y2="24"/>
+            <line x1="7" y1="24" x2="21" y2="24"/>
+          </svg>
+        </div>
+        <p class="step-title">使える形にする</p>
+        <p class="step-desc">発信・営業・採用・<br>AIに展開する</p>
+      </div>
+    </div>
+
     <!-- サービス(1) メイン -->
     <div class="service-main">
       <span class="service-main-tag">01  /  MAIN SERVICE</span>
@@ -830,6 +1148,49 @@ section { position: relative; }
         企業固有の"らしさ"を言語化し、発信・営業・採用で使える形に整えます。表面的な強みの言い換えではなく、経営者の体験・判断・こだわりの積み重ねから生まれた価値の軸を引き出す。それが出発点です。<br><br>
         全3回のセッションと最終報告を通じて、7つのアウトプットをお渡しします。人が読んでも、AIに渡しても機能する形で設計しています。
       </p>
+      <!-- 成果物アイコン群 -->
+      <div class="deliverable-icons">
+        <div class="del-icon-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 2h7l4 4v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
+            <path d="M11 2v4h4"/>
+            <path d="M6 9 h6 M6 12 h4"/>
+          </svg>
+          <span class="del-icon-label">ナラティブブック</span>
+        </div>
+        <div class="del-icon-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="14" height="10" rx="1.5"/>
+            <line x1="2" y1="7" x2="16" y2="7"/>
+            <circle cx="4.5" cy="5" r="0.8" fill="currentColor" stroke="none"/>
+            <circle cx="6.5" cy="5" r="0.8" fill="currentColor" stroke="none"/>
+            <line x1="6" y1="13" x2="6" y2="16"/>
+            <line x1="12" y1="13" x2="12" y2="16"/>
+            <line x1="4" y1="16" x2="14" y2="16"/>
+          </svg>
+          <span class="del-icon-label">サイト反映</span>
+        </div>
+        <div class="del-icon-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="14" height="11" rx="1.5"/>
+            <line x1="5" y1="6" x2="13" y2="6"/>
+            <line x1="5" y1="9" x2="10" y2="9"/>
+            <line x1="6" y1="13" x2="6" y2="16"/>
+            <line x1="12" y1="13" x2="12" y2="16"/>
+            <line x1="4" y1="16" x2="14" y2="16"/>
+          </svg>
+          <span class="del-icon-label">営業資料</span>
+        </div>
+        <div class="del-icon-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9 L7 6 L7 12 Z"/>
+            <path d="M7 7.5 Q11 5 14 9 Q11 13 7 10.5"/>
+            <circle cx="14" cy="9" r="2"/>
+          </svg>
+          <span class="del-icon-label">発信コンテンツ</span>
+        </div>
+      </div>
+
       <div class="deliverables">
         <span class="deliverable-tag">スタートガイド</span>
         <span class="deliverable-tag">ナラティブブック</span>
@@ -845,6 +1206,17 @@ section { position: relative; }
     <!-- サービス(2)(3) サブ -->
     <div class="service-sub-grid">
       <div class="service-sub">
+        <div class="sub-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 3 l4 4 -11 11 H7 v-4 z"/>
+            <rect x="4" y="18" width="8" height="6" rx="1"/>
+            <rect x="15" y="18" width="8" height="6" rx="1"/>
+            <line x1="6" y1="20" x2="10" y2="20"/>
+            <line x1="6" y1="22" x2="9" y2="22"/>
+            <line x1="17" y1="20" x2="21" y2="20"/>
+            <line x1="17" y1="22" x2="20" y2="22"/>
+          </svg>
+        </div>
         <p class="service-sub-tag">02  /  SUB SERVICE</p>
         <h3 class="service-sub-title">コンテンツ制作支援</h3>
         <p class="service-sub-body">
@@ -853,6 +1225,17 @@ section { position: relative; }
         </p>
       </div>
       <div class="service-sub">
+        <div class="sub-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="2" width="8" height="13" rx="4"/>
+            <path d="M5 14a9 9 0 0 0 18 0"/>
+            <line x1="14" y1="23" x2="14" y2="26"/>
+            <line x1="10" y1="26" x2="18" y2="26"/>
+            <path d="M19 8 h4 a2 2 0 0 1 2 2 v5 a2 2 0 0 1-2 2 h-2 l-2 2 v-2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="21" y1="11" x2="23" y2="11"/>
+            <line x1="21" y1="13" x2="22.5" y2="13"/>
+          </svg>
+        </div>
         <p class="service-sub-tag">03  /  SUB SERVICE</p>
         <h3 class="service-sub-title">インタビューライティング</h3>
         <p class="service-sub-body">
@@ -878,6 +1261,47 @@ section { position: relative; }
       どのような仕事を<br>
       <span class="em">してきたか。</span>
     </h2>
+
+    <!-- 仕事の分類マップ -->
+    <div class="works-map" aria-label="仕事の分類">
+      <p class="works-map-label">WORKS MAP — 仕事の全体像</p>
+      <svg width="100%" viewBox="0 0 760 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block; max-width:760px;">
+        <!-- 軸線 -->
+        <line x1="60" y1="100" x2="700" y2="100" stroke="#002B55" stroke-width="1.5"/>
+        <line x1="380" y1="20" x2="380" y2="180" stroke="#002B55" stroke-width="1.5"/>
+        <!-- 軸矢印 -->
+        <path d="M695 95 l8 5 -8 5" fill="#002B55"/>
+        <path d="M375 25 l5-8 5 8" fill="#002B55"/>
+        <!-- 軸ラベル -->
+        <text x="60" y="118" fill="#5C6B82" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="1">言語化</text>
+        <text x="660" y="118" fill="#5C6B82" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="1">実装</text>
+        <text x="390" y="30" fill="#5C6B82" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="0.5">個人・経営者</text>
+        <text x="390" y="178" fill="#5C6B82" font-size="10" font-family="Inter, sans-serif" font-weight="600" letter-spacing="0.5">事業・組織</text>
+        <!-- 象限ラベル（薄め） -->
+        <text x="120" y="56" fill="rgba(0,43,85,0.18)" font-size="28" font-family="Inter, sans-serif" font-weight="700">I</text>
+        <text x="490" y="56" fill="rgba(0,43,85,0.18)" font-size="28" font-family="Inter, sans-serif" font-weight="700">II</text>
+        <text x="110" y="168" fill="rgba(0,43,85,0.18)" font-size="28" font-family="Inter, sans-serif" font-weight="700">III</text>
+        <text x="490" y="168" fill="rgba(0,43,85,0.18)" font-size="28" font-family="Inter, sans-serif" font-weight="700">IV</text>
+        <!-- プロット点：ナラティブ構築（I象限：言語化×個人） -->
+        <circle cx="200" cy="60" r="5" fill="#005AAA"/>
+        <text x="210" y="56" fill="#002B55" font-size="11" font-family="Noto Sans JP, sans-serif" font-weight="600">ナラティブ構築</text>
+        <!-- プロット点：インタビュー（I象限） -->
+        <circle cx="160" cy="78" r="4" fill="#005AAA" opacity="0.6"/>
+        <text x="170" y="74" fill="#002B55" font-size="10" font-family="Noto Sans JP, sans-serif">インタビュー</text>
+        <!-- プロット点：コンテンツ制作（IV象限：実装×組織） -->
+        <circle cx="520" cy="145" r="5" fill="#005AAA"/>
+        <text x="530" y="141" fill="#002B55" font-size="11" font-family="Noto Sans JP, sans-serif" font-weight="600">コンテンツ制作</text>
+        <!-- プロット点：DLコンテンツ（IV象限） -->
+        <circle cx="580" cy="162" r="4" fill="#005AAA" opacity="0.6"/>
+        <text x="590" y="158" fill="#002B55" font-size="10" font-family="Noto Sans JP, sans-serif">DLコンテンツ</text>
+        <!-- プロット点：メディア立ち上げ（III象限） -->
+        <circle cx="260" cy="148" r="4" fill="#005AAA" opacity="0.7"/>
+        <text x="270" y="144" fill="#002B55" font-size="10" font-family="Noto Sans JP, sans-serif">メディア立ち上げ</text>
+        <!-- プロット点：MA支援（IV象限） -->
+        <circle cx="620" cy="130" r="4" fill="#002B55" opacity="0.4"/>
+        <text x="630" y="126" fill="#5C6B82" font-size="10" font-family="Noto Sans JP, sans-serif">MA支援（経歴）</text>
+      </svg>
+    </div>
 
     <div class="works-grid">
 
@@ -974,6 +1398,34 @@ section { position: relative; }
       <p class="contact-body">
         初回のご相談（オンラインMTG）は無料です。「自社のナラティブが言語化できているか」を一緒に確認するところから始めましょう。現状のヒアリングと、進め方のご提案をいたします。
       </p>
+      <!-- 相談前チェックリスト -->
+      <div class="contact-checklist" role="list" aria-label="このような方へ">
+        <div class="check-item" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" flex-shrink="0">
+            <polyline points="2,8 6,12 14,4"/>
+          </svg>
+          <span>自社の強みをうまく<br>説明できない</span>
+        </div>
+        <div class="check-item" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,8 6,12 14,4"/>
+          </svg>
+          <span>サイトや資料の言葉が<br>しっくりきていない</span>
+        </div>
+        <div class="check-item" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,8 6,12 14,4"/>
+          </svg>
+          <span>営業・採用・発信で<br>言い方がばらつく</span>
+        </div>
+        <div class="check-item" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#005AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,8 6,12 14,4"/>
+          </svg>
+          <span>代表の考えを事業の<br>言葉に直したい</span>
+        </div>
+      </div>
+
       <a href="mailto:contact@businessnarrative.org" class="contact-btn">お問い合わせフォームへ</a>
       <p class="contact-note">※ いただいたメッセージには数日以内にご返信いたします。</p>
     </div>
