@@ -352,6 +352,66 @@ section { position: relative; }
   color: var(--muted);
   letter-spacing: 0.18em;
 }
+/* ABOUT MA経験ブロック */
+.about-ma {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0,43,85,0.1);
+}
+.about-ma p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 2.0;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+.about-ma p:last-child { margin-bottom: 0; }
+
+/* ABOUT 3ステップダイアグラム */
+.about-3steps {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+.about-3step {
+  background: var(--paper);
+  border: 1.5px solid rgba(0,43,85,0.15);
+  padding: 22px 24px;
+}
+.about-3step + .about-3step { border-top: none; }
+.about-3step-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.about-3step-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.about-3step-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.about-3step-arrow {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(0,43,85,0.2);
+  padding: 3px 0;
+  line-height: 1;
+  background: var(--blue-pale);
+  border-left: 1.5px solid rgba(0,43,85,0.15);
+  border-right: 1.5px solid rgba(0,43,85,0.15);
+}
+
 /* 経歴ステップ */
 .career-steps { margin-top: 48px; }
 .career-step {
@@ -1035,106 +1095,49 @@ section { position: relative; }
       <!-- 左：プロフィール -->
       <div class="about-left">
         <div class="about-title-block">
-          <p class="about-role">NARRATIVE ARCHITECT</p>
+          <p class="about-role">ナラティブアーキテクト</p>
           <p class="about-name-ja">酒井 駿</p>
           <p class="about-name-en">SHUN SAKAI</p>
         </div>
         <div class="about-story">
           <p>
-            フリーランスライターとしてのキャリアをスタートし、オウンドメディアの記事制作を経てライターチームのディレクションを担うようになった。その後、コンテンツ制作よりも上流の戦略設計などの領域にも関わるようになり、メールマーケティングやマーケティングオートメーションの導入・運用支援を複数社で担当した。
+            ライター・ディレクターとしてのキャリアを経て、マーケティング戦略設計やマーケティングオートメーションの導入支援まで幅広く関わる中で、一つの確信にたどり着いた。
           </p>
           <p>
-            多くの企業の情報発信に携わる中で気づいたのは、「発信がうまくいかない根本的な原因は、手法や技術ではなく、自社の"らしさ"が言語化されていないことにある」ということだった。
+            「発信がうまくいかない根本的な原因は、手法や技術ではなく、自社の"らしさ"が言語化されていないことにある。」
           </p>
           <p>
-            現在は、その課題に正面から向き合うビジネスナラティブ構築支援を主軸に活動している。経営者へのヒアリングをもとに企業固有の体験・判断を掘り起こし、人とAIが実務で使える形に言語化するのが専門。
+            現在は、その課題に正面から向き合うビジネスナラティブ構築支援を主軸に活動。経営者へのヒアリングをもとに企業固有の体験・判断を掘り起こし、発信・営業・採用で使える言葉に整える。
           </p>
+        </div>
+        <div class="about-ma">
+          <p>ライティング・ディレクション・マーケティング戦略設計・MA導入支援まで、コンテンツの上流から実装まで複数社で経験を積んできた。その過程で「言葉の設計」と「使える形への落とし込み」の両方を担う必要性を実感し、現在のサービスへと至る。</p>
         </div>
       </div>
 
       <!-- 右：経歴ステップ -->
       <div class="about-right">
 
-        <!-- ロールマップ：Narrative Architectとは何をする人か -->
-        <div class="role-map" aria-hidden="true">
-          <p class="role-map-label">NARRATIVE ARCHITECT — 役割</p>
-          <svg width="300" height="220" viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- 背景円 -->
-            <circle cx="150" cy="110" r="90" stroke="rgba(0,43,85,0.1)" stroke-width="1" stroke-dasharray="4 6"/>
-            <!-- 中心から各ノードへのライン -->
-            <line x1="150" y1="110" x2="150" y2="30" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
-            <line x1="150" y1="110" x2="240" y2="110" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
-            <line x1="150" y1="110" x2="150" y2="190" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
-            <line x1="150" y1="110" x2="60" y2="110" stroke="rgba(0,90,170,0.25)" stroke-width="1.5"/>
-            <!-- 中心ノード -->
-            <circle cx="150" cy="110" r="36" stroke="var(--navy)" stroke-width="1.5"/>
-            <text x="150" y="105" text-anchor="middle" dominant-baseline="middle" fill="#002B55" font-size="10" font-family="Inter, sans-serif" font-weight="700" letter-spacing="1">Narrative</text>
-            <text x="150" y="119" text-anchor="middle" dominant-baseline="middle" fill="#002B55" font-size="10" font-family="Inter, sans-serif" font-weight="700" letter-spacing="1">Architect</text>
-            <!-- 上：聞く -->
-            <circle cx="150" cy="26" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
-            <!-- 吹き出しアイコン -->
-            <path d="M143 20 h14 a3 3 0 0 1 3 3 v6 a3 3 0 0 1-3 3 h-5 l-3 3 v-3 h-6 a3 3 0 0 1-3-3 v-6 a3 3 0 0 1 3-3z" stroke="#005AAA" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="150" y="52" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="10" font-family="Noto Sans JP, sans-serif" font-weight="600">聞く</text>
-            <!-- 右：使える形にする -->
-            <circle cx="244" cy="110" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
-            <!-- ブラウザアイコン -->
-            <rect x="234" y="103" width="20" height="14" rx="2" stroke="#005AAA" stroke-width="1.5" fill="none"/>
-            <line x1="234" y1="107" x2="254" y2="107" stroke="#005AAA" stroke-width="1.5"/>
-            <circle cx="237" cy="105" r="1" fill="#005AAA"/>
-            <circle cx="240" cy="105" r="1" fill="#005AAA"/>
-            <text x="244" y="126" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">使える</text>
-            <text x="244" y="136" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">形に</text>
-            <!-- 下：言葉にする -->
-            <circle cx="150" cy="194" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
-            <!-- ペンアイコン -->
-            <path d="M154 188 l-6 6 -1 3 3-1 6-6z" stroke="#005AAA" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M154 188 l2-2 a1.5 1.5 0 0 1 2 2 l-2 2z" stroke="#005AAA" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="150" y="170" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">言葉に</text>
-            <text x="150" y="180" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="9.5" font-family="Noto Sans JP, sans-serif" font-weight="600">する</text>
-            <!-- 左：整える -->
-            <circle cx="56" cy="110" r="22" fill="var(--blue-pale)" stroke="rgba(0,90,170,0.35)" stroke-width="1.5"/>
-            <!-- ノードアイコン -->
-            <circle cx="56" cy="105" r="3" stroke="#005AAA" stroke-width="1.5" fill="none"/>
-            <circle cx="48" cy="116" r="2.5" stroke="#005AAA" stroke-width="1.5" fill="none"/>
-            <circle cx="64" cy="116" r="2.5" stroke="#005AAA" stroke-width="1.5" fill="none"/>
-            <line x1="56" y1="108" x2="50" y2="114" stroke="#005AAA" stroke-width="1.5"/>
-            <line x1="56" y1="108" x2="62" y2="114" stroke="#005AAA" stroke-width="1.5"/>
-            <line x1="51" y1="116" x2="62" y2="116" stroke="#005AAA" stroke-width="1.5"/>
-            <text x="56" y="126" text-anchor="middle" dominant-baseline="middle" fill="#005AAA" font-size="10" font-family="Noto Sans JP, sans-serif" font-weight="600">整える</text>
-          </svg>
-        </div>
-
         <div class="section-q" style="font-size: clamp(18px, 2vw, 24px); margin-bottom: 32px;">
-          どのような経緯で、<br>今の仕事にたどり着いたか
+          ナラティブアーキテクトとは
         </div>
-        <div class="career-steps">
-          <div class="career-step">
-            <div class="career-dot"></div>
-            <div class="career-body">
-              <p class="career-period">WRITING</p>
-              <p class="career-text">フリーランスライターとして活動を開始。マーケティングコンテンツの記事制作からキャリアをスタート。</p>
-            </div>
+        <div class="about-3steps">
+          <div class="about-3step">
+            <p class="about-3step-num">01 — 聞く</p>
+            <p class="about-3step-title">経営者の言葉を掘り起こす</p>
+            <p class="about-3step-desc">インタビューを通じて、事業の背景・判断の経緯・顧客との関係を丁寧に引き出す。表に出ていない"らしさ"の源泉を探る。</p>
           </div>
-          <div class="career-step">
-            <div class="career-dot"></div>
-            <div class="career-body">
-              <p class="career-period">DIRECTION</p>
-              <p class="career-text">オウンドメディアの立ち上げ・運用に携わり、ライターチームのディレクションを担当するようになる。</p>
-            </div>
+          <div class="about-3step-arrow">↓</div>
+          <div class="about-3step">
+            <p class="about-3step-num">02 — 整理する</p>
+            <p class="about-3step-title">文脈として構造化する</p>
+            <p class="about-3step-desc">断片的な言葉を整理し、企業固有の価値観・判断基準・訴求軸として体系化する。強みの言い換えではなく、一本の文脈をつくる。</p>
           </div>
-          <div class="career-step">
-            <div class="career-dot"></div>
-            <div class="career-body">
-              <p class="career-period">STRATEGY</p>
-              <p class="career-text">マーケティング戦略設計・MAの導入支援など、コンテンツ制作よりも上流の領域へシフト。複数業種・複数社で経験を積む。</p>
-            </div>
-          </div>
-          <div class="career-step">
-            <div class="career-dot"></div>
-            <div class="career-body">
-              <p class="career-period">NARRATIVE ARCHITECTURE — 現在</p>
-              <p class="career-text">企業固有の"らしさ"が言語化されていないことが、発信の根本的な課題だと確信。ビジネスナラティブ構築支援を主軸とした活動へ。</p>
-            </div>
+          <div class="about-3step-arrow">↓</div>
+          <div class="about-3step">
+            <p class="about-3step-num">03 — 使える言葉にする</p>
+            <p class="about-3step-title">実務で動くアウトプットへ</p>
+            <p class="about-3step-desc">発信・営業・採用の現場で使える形に落とし込む。人が使えるだけでなく、AIに渡せる素材としても機能する状態をつくる。</p>
           </div>
         </div>
       </div>
