@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business Narrative — Narrative Architect 酒井 駿</title>
+<meta name="description" content="企業固有の"らしさ"を言語化し、発信・営業・採用で使える形に整える。Narrative Architect 酒井駿のポートフォリオサイト。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@500;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* =====================
+   デザイントークン
+   ナラティブブック標準デザインに準拠
+===================== */
+:root {
+  --navy-deep:  #001B3A;
+  --navy:       #002B55;
+  --blue:       #005AAA;
+  --blue-light: #D8F2FF;
+  --blue-pale:  #F4FBFF;
+  --gray-cool:  #E7EEF5;
+  --gray-soft:  #B9C3D1;
+  --ink:        #0F1B2D;
+  --ink-soft:   #2C3A50;
+  --muted:      #5C6B82;
+  --paper:      #FFFFFF;
+
+  --font-sans:  'Noto Sans JP', system-ui, sans-serif;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-mono:  'Inter', 'Noto Sans JP', sans-serif;
+}
+
+/* =====================
+   リセット・基本
+===================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--navy-deep);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====================
+   ユーティリティ
+===================== */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+}
+
+/* =====================
+   ヘッダー（固定）
+===================== */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--navy-deep);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 48px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-logo {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+.site-logo span { color: var(--blue-light); opacity: 0.7; }
+.header-nav { display: flex; gap: 32px; }
+.header-nav a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gray-soft);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.header-nav a:hover { color: #fff; }
+@media (max-width: 768px) {
+  .header-inner { padding: 0 20px; }
+  .header-nav { display: none; }
+}
+
+/* =====================
+   セクション共通
+===================== */
+section { position: relative; }
+.section-label {
+  display: inline-flex;
+  align-items: stretch;
+  height: 36px;
+  margin-bottom: 40px;
+}
+.section-label .role {
+  display: flex;
+  align-items: center;
+  background: var(--navy-deep);
+  color: #fff;
+  padding: 0 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+}
+.section-label .topic {
+  display: flex;
+  align-items: center;
+  background: var(--navy);
+  color: #fff;
+  padding: 0 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.section-q {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 48px);
+  color: var(--navy-deep);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  margin-bottom: 32px;
+}
+.section-q .em { color: var(--blue); }
+
+/* 答え帯 */
+.answer-band {
+  background: var(--blue-light);
+  border-left: 6px solid var(--navy);
+  padding: 28px 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+.answer-band .a-mark {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--navy);
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  flex: none;
+  padding-top: 4px;
+}
+.answer-band .a-text {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--navy-deep);
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+}
+.answer-band .a-text b { color: var(--blue); }
+
+/* 下部まとめ帯 */
+.summary-band {
+  background: var(--navy-deep);
+  border-left: 6px solid var(--blue);
+  padding: 24px 36px;
+  margin-top: 56px;
+}
+.summary-band .s-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--blue-light);
+  margin-bottom: 10px;
+}
+.summary-band .s-text {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+.summary-band .s-text b { color: var(--blue-light); }
+
+/* =====================
+   01 HERO
+===================== */
+#hero {
+  min-height: 100vh;
+  background: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+/* 背景の薄い装飾 */
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,90,170,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.36em;
+  color: var(--blue-light);
+  opacity: 0.8;
+  margin-bottom: 28px;
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: clamp(36px, 5.5vw, 72px);
+  color: #fff;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  margin-bottom: 32px;
+}
+.hero-title .em { color: var(--blue-light); }
+.hero-title .br { display: block; }
+.hero-sub {
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: var(--gray-soft);
+  line-height: 2.0;
+  letter-spacing: 0.04em;
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--blue);
+  color: #fff;
+  padding: 16px 36px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.hero-cta:hover { background: #0068cc; }
+.hero-name {
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  padding-right: 48px;
+}
+.hero-name-ja {
+  font-family: var(--font-serif);
+  font-size: clamp(60px, 8vw, 120px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+@media (max-width: 900px) {
+  .hero-name { display: none; }
+}
+
+/* =====================
+   02 ABOUT
+===================== */
+#about {
+  background: var(--blue-pale);
+  padding: 120px 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.about-left {}
+.about-right {
+  padding-top: 8px;
+}
+.about-story {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 2.1;
+  letter-spacing: 0.03em;
+}
+.about-story p { margin-bottom: 20px; }
+.about-story p:last-child { margin-bottom: 0; }
+.about-title-block {
+  margin-bottom: 40px;
+}
+.about-role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.36em;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.about-name-ja {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.about-name-en {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+}
+/* 経歴ステップ */
+.career-steps { margin-top: 48px; }
+.career-step {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 32px;
+  position: relative;
+}
+.career-step::before {
+  content: '';
+  position: absolute;
+  left: 11px; top: 28px;
+  width: 2px;
+  bottom: 0;
+  background: var(--gray-cool);
+}
+.career-step:last-child::before { display: none; }
+.career-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex: none;
+  margin-top: 2px;
+}
+.career-step:last-child .career-dot { background: var(--navy-deep); }
+.career-body {}
+.career-period {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.career-step:last-child .career-period { color: var(--navy); }
+.career-text {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* =====================
+   03 SERVICES
+===================== */
+#services {
+  background: var(--paper);
+  padding: 120px 0;
+}
+
+/* サービス(1) メイン */
+.service-main {
+  background: var(--blue-pale);
+  border-left: 6px solid var(--navy);
+  padding: 56px 56px 48px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.service-main-tag {
+  position: absolute;
+  top: 0; left: -6px;
+  background: var(--navy-deep);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  padding: 6px 16px;
+}
+.service-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--navy-deep);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+.service-main-subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--blue);
+  margin-bottom: 24px;
+}
+.service-main-body {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 2.0;
+  letter-spacing: 0.03em;
+  max-width: 760px;
+  margin-bottom: 36px;
+}
+/* 成果物タグ */
+.deliverables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.deliverable-tag {
+  background: var(--paper);
+  border: 1px solid var(--blue);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+}
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.service-link:hover { opacity: 0.7; }
+.service-link::after { content: ' →'; }
+
+/* サービス(2)(3) サブ */
+.service-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.service-sub {
+  background: var(--blue-pale);
+  border-top: 4px solid var(--blue);
+  padding: 36px 36px 32px;
+}
+.service-sub-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.service-sub-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.service-sub-body {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  .service-main { padding: 40px 28px 36px; }
+  .service-sub-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================
+   04 WORKS
+===================== */
+#works {
+  background: var(--gray-cool);
+  padding: 120px 0;
+}
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+/* 実績カード */
+.work-card {
+  background: var(--paper);
+  border-top: 4px solid var(--navy);
+  padding: 36px 36px 32px;
+}
+.work-card.featured {
+  border-top-color: var(--blue);
+  background: var(--blue-pale);
+}
+.work-tag {
+  display: inline-block;
+  background: var(--navy-deep);
+  color: var(--blue-light);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+.work-card.featured .work-tag {
+  background: var(--blue);
+  color: #fff;
+}
+.work-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+}
+.work-body {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+.work-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+}
+/* MA経歴バー */
+.work-career-bar {
+  grid-column: 1 / -1;
+  background: var(--navy-deep);
+  padding: 24px 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.work-career-bar .bar-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--blue-light);
+  flex: none;
+}
+.work-career-bar .bar-line {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.15);
+  flex: none;
+}
+.work-career-bar .bar-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+/* 追加予定カード */
+.work-card.coming-soon {
+  border-top-color: var(--gray-soft);
+  background: var(--paper);
+  opacity: 0.6;
+}
+.work-card.coming-soon .work-title {
+  color: var(--muted);
+}
+@media (max-width: 768px) {
+  .works-grid { grid-template-columns: 1fr; }
+  .work-career-bar { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .work-career-bar .bar-line { display: none; }
+}
+
+/* =====================
+   05 CONTACT
+===================== */
+#contact {
+  background: var(--navy-deep);
+  padding: 120px 0;
+}
+.contact-inner {
+  max-width: 680px;
+}
+.contact-q {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  margin-bottom: 32px;
+}
+.contact-q .em { color: var(--blue-light); }
+.contact-body {
+  font-size: 15px;
+  color: var(--gray-soft);
+  line-height: 2.0;
+  letter-spacing: 0.03em;
+  margin-bottom: 48px;
+}
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--blue);
+  color: #fff;
+  padding: 18px 44px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.contact-btn:hover { background: #0068cc; }
+.contact-note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* =====================
+   フッター
+===================== */
+.site-footer {
+  background: #000d1f;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  color: var(--muted);
+}
+.footer-copy {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+@media (max-width: 768px) {
+  .footer-inner { flex-direction: column; gap: 16px; padding: 0 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===================== ヘッダー ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo">BUSINESS<span>&nbsp;</span>NARRATIVE</a>
+    <nav class="header-nav">
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#works">WORKS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== 01 HERO ===================== -->
+<section id="hero">
+  <div class="container">
+    <p class="hero-eyebrow">NARRATIVE ARCHITECT — 酒井 駿</p>
+    <h1 class="hero-title">
+      <span class="br">企業固有の<span class="em">"らしさ"</span>を言語化し、</span>
+      <span class="br">発信・営業・採用で</span>
+      <span class="br">使える形に整える。</span>
+    </h1>
+    <p class="hero-sub">
+      経営者の体験・判断の積み重ねから、<br>
+      その会社だけにしか言えない価値の軸を引き出す。<br>
+      人にもAIにも渡せる事業資産をつくります。
+    </p>
+    <a href="#contact" class="hero-cta">お問い合わせ・ご相談</a>
+  </div>
+  <div class="hero-name" aria-hidden="true">
+    <div class="hero-name-ja">酒井駿</div>
+  </div>
+</section>
+
+<!-- ===================== 02 ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+
+    <div class="section-label">
+      <span class="role">ABOUT</span>
+      <span class="topic">Narrative Architect とは</span>
+    </div>
+
+    <div class="about-grid">
+      <!-- 左：プロフィール -->
+      <div class="about-left">
+        <div class="about-title-block">
+          <p class="about-role">NARRATIVE ARCHITECT</p>
+          <p class="about-name-ja">酒井 駿</p>
+          <p class="about-name-en">SHUN SAKAI</p>
+        </div>
+        <div class="about-story">
+          <p>
+            フリーランスライターとしてのキャリアをスタートし、オウンドメディアの記事制作を経てライターチームのディレクションを担うようになった。その後、コンテンツ制作よりも上流の戦略設計などの領域にも関わるようになり、メールマーケティングやマーケティングオートメーションの導入・運用支援を複数社で担当した。
+          </p>
+          <p>
+            多くの企業の情報発信に携わる中で気づいたのは、「発信がうまくいかない根本的な原因は、手法や技術ではなく、自社の"らしさ"が言語化されていないことにある」ということだった。
+          </p>
+          <p>
+            現在は、その課題に正面から向き合うビジネスナラティブ構築支援を主軸に活動している。経営者へのヒアリングをもとに企業固有の体験・判断を掘り起こし、人とAIが実務で使える形に言語化するのが専門。
+          </p>
+        </div>
+      </div>
+
+      <!-- 右：経歴ステップ -->
+      <div class="about-right">
+        <div class="section-q" style="font-size: clamp(18px, 2vw, 24px); margin-bottom: 32px;">
+          どのような経緯で、<br>今の仕事にたどり着いたか
+        </div>
+        <div class="career-steps">
+          <div class="career-step">
+            <div class="career-dot"></div>
+            <div class="career-body">
+              <p class="career-period">WRITING</p>
+              <p class="career-text">フリーランスライターとして活動を開始。マーケティングコンテンツの記事制作からキャリアをスタート。</p>
+            </div>
+          </div>
+          <div class="career-step">
+            <div class="career-dot"></div>
+            <div class="career-body">
+              <p class="career-period">DIRECTION</p>
+              <p class="career-text">オウンドメディアの立ち上げ・運用に携わり、ライターチームのディレクションを担当するようになる。</p>
+            </div>
+          </div>
+          <div class="career-step">
+            <div class="career-dot"></div>
+            <div class="career-body">
+              <p class="career-period">STRATEGY</p>
+              <p class="career-text">マーケティング戦略設計・MAの導入支援など、コンテンツ制作よりも上流の領域へシフト。複数業種・複数社で経験を積む。</p>
+            </div>
+          </div>
+          <div class="career-step">
+            <div class="career-dot"></div>
+            <div class="career-body">
+              <p class="career-period">NARRATIVE ARCHITECTURE — 現在</p>
+              <p class="career-text">企業固有の"らしさ"が言語化されていないことが、発信の根本的な課題だと確信。ビジネスナラティブ構築支援を主軸とした活動へ。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== 03 SERVICES ===================== -->
+<section id="services">
+  <div class="container">
+
+    <div class="section-label">
+      <span class="role">SERVICES</span>
+      <span class="topic">3つの関わり方</span>
+    </div>
+
+    <h2 class="section-q">
+      ビジネスナラティブを軸に、<br>
+      <span class="em">3つの形で関わります。</span>
+    </h2>
+
+    <div class="answer-band">
+      <span class="a-mark">A.</span>
+      <p class="a-text">
+        「ナラティブを構築する」「ナラティブをベースにコンテンツをつくる」「言語化のためのインタビューを行う」——<br>
+        すべて<b>「企業固有の"らしさ"を言葉にする」</b>という一本の軸でつながっています。
+      </p>
+    </div>
+
+    <!-- サービス(1) メイン -->
+    <div class="service-main">
+      <span class="service-main-tag">01  /  MAIN SERVICE</span>
+      <p class="service-main-subtitle">ビジネスナラティブ構築支援</p>
+      <h3 class="service-main-title">ナラティブ構築サービス</h3>
+      <p class="service-main-body">
+        企業固有の"らしさ"を言語化し、発信・営業・採用で使える形に整えます。表面的な強みの言い換えではなく、経営者の体験・判断・こだわりの積み重ねから生まれた価値の軸を引き出す。それが出発点です。<br><br>
+        全3回のセッションと最終報告を通じて、7つのアウトプットをお渡しします。人が読んでも、AIに渡しても機能する形で設計しています。
+      </p>
+      <div class="deliverables">
+        <span class="deliverable-tag">スタートガイド</span>
+        <span class="deliverable-tag">ナラティブブック</span>
+        <span class="deliverable-tag">運用ガイド</span>
+        <span class="deliverable-tag">コンテンツサンプル</span>
+        <span class="deliverable-tag">コンテンツサンプル（注釈付き）</span>
+        <span class="deliverable-tag">セッション確認メモ</span>
+        <span class="deliverable-tag">訴求方針チェックリスト</span>
+      </div>
+      <a href="#contact" class="service-link">サービス詳細・お問い合わせ</a>
+    </div>
+
+    <!-- サービス(2)(3) サブ -->
+    <div class="service-sub-grid">
+      <div class="service-sub">
+        <p class="service-sub-tag">02  /  SUB SERVICE</p>
+        <h3 class="service-sub-title">コンテンツ制作支援</h3>
+        <p class="service-sub-body">
+          構築したナラティブを起点に、継続的なコンテンツ制作をサポートします。「発信の軸」を活かしながら、オウンドメディアやSNSでの記事・コンテンツ制作を支援。ライターチームのディレクションから、AIを活用したコンテンツ制作の効率化まで対応可能です。<br><br>
+          「ナラティブはあるが、継続的に発信する体制が整っていない」という段階でのご相談も歓迎します。
+        </p>
+      </div>
+      <div class="service-sub">
+        <p class="service-sub-tag">03  /  SUB SERVICE</p>
+        <h3 class="service-sub-title">インタビューライティング</h3>
+        <p class="service-sub-body">
+          ヒアリングで引き出し、言葉に変える。それが最も得意とする仕事です。ビジネスナラティブ構築で培ったヒアリングの技術を活かし、経営者・担当者への取材から、その人・その事業ならではの言葉を引き出し、読まれる記事に整えます。<br><br>
+          単体での受注のほか、コンテンツ制作支援の一環として対応することもできます。
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== 04 WORKS ===================== -->
+<section id="works">
+  <div class="container">
+
+    <div class="section-label">
+      <span class="role">WORKS</span>
+      <span class="topic">実績・事例</span>
+    </div>
+
+    <h2 class="section-q">
+      どのような仕事を<br>
+      <span class="em">してきたか。</span>
+    </h2>
+
+    <div class="works-grid">
+
+      <!-- ナラティブ構築実績（featured） -->
+      <div class="work-card featured">
+        <span class="work-tag">01  /  ビジネスナラティブ構築支援</span>
+        <h3 class="work-title">ナラティブブック制作<br>— オクダエンタープライズ（不動産業）</h3>
+        <p class="work-body">
+          不動産仲介・管理を行うオクダエンタープライズのビジネスナラティブを構築。経営者へのヒアリングをもとに、事業の"らしさ"を言語化し、ナラティブブックをはじめとする7つのアウトプットを制作・納品。
+        </p>
+        <p class="work-meta">アウトプット: ナラティブブック / 運用ガイド / コンテンツサンプル 他</p>
+      </div>
+
+      <div class="work-card featured">
+        <span class="work-tag">02  /  ビジネスナラティブ構築支援</span>
+        <h3 class="work-title">ナラティブブック制作<br>— フリーベル株式会社（コンテンツ制作）</h3>
+        <p class="work-body">
+          オウンドメディア・コンテンツ制作会社のビジネスナラティブを構築。サービスの言語化と訴求軸の整理を目的としたナラティブブックを制作。
+        </p>
+        <p class="work-meta">アウトプット: ナラティブブック / 運用ガイド / コンテンツサンプル 他</p>
+      </div>
+
+      <!-- コンテンツ制作支援実績 -->
+      <div class="work-card">
+        <span class="work-tag">03  /  コンテンツ制作支援</span>
+        <h3 class="work-title">オウンドメディア立ち上げ・運用体制構築<br>— 携帯販売代理店</h3>
+        <p class="work-body">
+          ゼロからのオウンドメディア立ち上げ、SEO対策、記事制作、ライターチームの構築・ディレクションを担当。継続的に発信できる体制をつくる。
+        </p>
+        <p class="work-meta">担当: 戦略設計 / ディレクション / 記事制作</p>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag">04  /  コンテンツ制作支援</span>
+        <h3 class="work-title">オウンドメディア立ち上げ・記事制作<br>— 注文住宅・広告代理店</h3>
+        <p class="work-body">
+          注文住宅案件のオウンドメディア立ち上げから記事制作まで一貫して担当。ターゲット設計・コンテンツ企画・制作のすべてに関与。
+        </p>
+        <p class="work-meta">担当: 企画 / ディレクション / ライティング</p>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag">05  /  コンテンツ制作支援</span>
+        <h3 class="work-title">ペットメディア 記事制作・ディレクション代行</h3>
+        <p class="work-body">
+          ペット専門メディアの記事制作ディレクションを代行。ライターへの指示出し、記事品質の管理、継続的な発信体制の維持を担当。
+        </p>
+        <p class="work-meta">担当: ディレクション / 品質管理</p>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag">06  /  コンテンツ制作支援</span>
+        <h3 class="work-title">DLコンテンツ制作<br>— ビジネスマッチングプラットフォーム</h3>
+        <p class="work-body">
+          見込み顧客獲得を目的としたダウンロードコンテンツの企画・制作。ターゲットの課題と自社サービスをつなぐ構成設計から制作まで担当。
+        </p>
+        <p class="work-meta">担当: 企画 / ライティング</p>
+      </div>
+
+      <!-- インタビューライティング -->
+      <div class="work-card coming-soon">
+        <span class="work-tag">07  /  インタビューライティング</span>
+        <h3 class="work-title">事例コンテンツ 近日公開</h3>
+        <p class="work-body">インタビューライティングの実績を追加予定です。</p>
+      </div>
+
+      <!-- MAバー -->
+      <div class="work-career-bar">
+        <span class="bar-label">経歴として</span>
+        <div class="bar-line"></div>
+        <p class="bar-text">
+          フリーベル株式会社在籍時、メールマーケティング・マーケティングオートメーション（MA）の導入・運用支援を複数社で担当。コンテンツ制作だけに閉じず、施策全体の設計・実行まで関与した経験を持つ。
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== 05 CONTACT ===================== -->
+<section id="contact">
+  <div class="container">
+
+    <div class="section-label">
+      <span class="role" style="background: var(--navy);">CONTACT</span>
+      <span class="topic">お問い合わせ・ご相談</span>
+    </div>
+
+    <div class="contact-inner">
+      <h2 class="contact-q">
+        まず、<span class="em">話してみる</span>ところから。
+      </h2>
+      <p class="contact-body">
+        初回のご相談（オンラインMTG）は無料です。「自社のナラティブが言語化できているか」を一緒に確認するところから始めましょう。現状のヒアリングと、進め方のご提案をいたします。
+      </p>
+      <a href="mailto:contact@businessnarrative.org" class="contact-btn">お問い合わせフォームへ</a>
+      <p class="contact-note">※ いただいたメッセージには数日以内にご返信いたします。</p>
+    </div>
+
+    <div class="summary-band" style="margin-top: 80px;">
+      <p class="s-label">BUSINESS NARRATIVE</p>
+      <p class="s-text">
+        企業固有の"らしさ"を言語化し、<b>発信・営業・採用で使える形に整える。</b><br>
+        人にもAIにも渡せる事業資産をつくることが、このサービスのゴールです。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== フッター ===================== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-logo">BUSINESS NARRATIVE — SHUN SAKAI</span>
+    <span class="footer-copy">© 2026 Shun Sakai. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
