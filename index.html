@@ -761,6 +761,72 @@ section { position: relative; }
   margin-bottom: 12px;
 }
 
+/* SERVICESイントロ文 */
+.services-intro {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 2.1;
+  letter-spacing: 0.03em;
+  margin-bottom: 56px;
+  max-width: 680px;
+}
+
+/* MAIN SERVICEベネフィットリスト */
+.service-benefits {
+  margin-bottom: 28px;
+}
+.service-benefits-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+.service-benefits ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.service-benefits li {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  padding-left: 22px;
+  position: relative;
+}
+.service-benefits li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 13px;
+  top: 1px;
+}
+
+/* 成果物サプリメント（小さめ補足） */
+.deliverables-note {
+  margin-bottom: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,43,85,0.1);
+}
+.deliverables-note-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.deliverables-note-text {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
 /* 3. ステップフロー（SERVICES） */
 .steps-flow {
   display: flex;
@@ -921,7 +987,8 @@ section { position: relative; }
       <div class="hero-left">
         <p class="hero-eyebrow">NARRATIVE ARCHITECT — 酒井 駿</p>
         <h1 class="hero-title">
-          <span class="br">企業固有の<span class="em">"らしさ"</span>を言語化し、</span>
+          <span class="br">企業固有の</span>
+          <span class="br"><span class="em">"らしさ"</span>を言語化し、</span>
           <span class="br">発信・営業・採用で</span>
           <span class="br">使える形に整える。</span>
         </h1>
@@ -1090,70 +1157,10 @@ section { position: relative; }
       <span class="em">3つの形で関わります。</span>
     </h2>
 
-    <div class="answer-band">
-      <span class="a-mark">A.</span>
-      <p class="a-text">
-        「ナラティブを構築する」「ナラティブをベースにコンテンツをつくる」「言語化のためのインタビューを行う」——<br>
-        すべて<b>「企業固有の"らしさ"を言葉にする」</b>という一本の軸でつながっています。
-      </p>
-    </div>
-
-    <!-- 支援の3ステップ図 -->
-    <div class="steps-flow" role="list" aria-label="支援の流れ">
-      <div class="step-card" role="listitem">
-        <p class="step-label">01 / LISTEN</p>
-        <div class="step-icon">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M24 17a10 10 0 0 1-10 10"/>
-            <path d="M5 10.5A9 9 0 0 1 23 10.5v5a3 3 0 0 1-6 0v-5a3 3 0 0 0-6 0v5a9 9 0 0 1-9 0v-5"/>
-            <path d="M14 27v-4"/>
-          </svg>
-        </div>
-        <p class="step-title">聞く</p>
-        <p class="step-desc">経営者・事業責任者の<br>言葉を拾う</p>
-      </div>
-      <div class="step-arrow" aria-hidden="true">
-        <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-          <path d="M0 8 h16 M12 3 l6 5 -6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="step-card" role="listitem">
-        <p class="step-label">02 / STRUCTURE</p>
-        <div class="step-icon">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="14" cy="6" r="3"/>
-            <circle cx="5" cy="22" r="3"/>
-            <circle cx="23" cy="22" r="3"/>
-            <line x1="14" y1="9" x2="7" y2="19"/>
-            <line x1="14" y1="9" x2="21" y2="19"/>
-            <line x1="8" y1="22" x2="20" y2="22"/>
-          </svg>
-        </div>
-        <p class="step-title">構造化する</p>
-        <p class="step-desc">価値・違和感・強みを<br>整理する</p>
-      </div>
-      <div class="step-arrow" aria-hidden="true">
-        <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-          <path d="M0 8 h16 M12 3 l6 5 -6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="step-card" role="listitem">
-        <p class="step-label">03 / DELIVER</p>
-        <div class="step-icon">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="22" height="16" rx="2"/>
-            <line x1="3" y1="9" x2="25" y2="9"/>
-            <circle cx="6.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            <circle cx="9.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            <line x1="9" y1="20" x2="9" y2="24"/>
-            <line x1="19" y1="20" x2="19" y2="24"/>
-            <line x1="7" y1="24" x2="21" y2="24"/>
-          </svg>
-        </div>
-        <p class="step-title">使える形にする</p>
-        <p class="step-desc">発信・営業・採用・<br>AIに展開する</p>
-      </div>
-    </div>
+    <p class="services-intro">
+      企業の"らしさ"を言葉にするところから、サイト・営業資料・採用発信に使える形へ落とし込むまで。<br>
+      必要な段階に合わせて、設計・制作・文章化を支援します。
+    </p>
 
     <!-- サービス(1) メイン -->
     <div class="service-main">
@@ -1161,60 +1168,25 @@ section { position: relative; }
       <p class="service-main-subtitle">ビジネスナラティブ構築支援</p>
       <h3 class="service-main-title">ナラティブ構築サービス</h3>
       <p class="service-main-body">
-        企業固有の"らしさ"を言語化し、発信・営業・採用で使える形に整えます。表面的な強みの言い換えではなく、経営者の体験・判断・こだわりの積み重ねから生まれた価値の軸を引き出す。それが出発点です。<br><br>
-        全3回のセッションと最終報告を通じて、7つのアウトプットをお渡しします。人が読んでも、AIに渡しても機能する形で設計しています。
+        経営者の考え、事業の背景、顧客に選ばれる理由を整理し、発信・営業・採用で使える言葉に整えます。<br><br>
+        サイトを直したい。営業資料の説明が毎回ぶれる。採用で会社の魅力をうまく伝えられない。<br><br>
+        そうした状態を、事業の言葉から組み直すサービスです。整理した言葉は、制作チームやAIに渡せる素材としても活用できます。
       </p>
-      <!-- 成果物アイコン群 -->
-      <div class="deliverable-icons">
-        <div class="del-icon-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 2h7l4 4v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
-            <path d="M11 2v4h4"/>
-            <path d="M6 9 h6 M6 12 h4"/>
-          </svg>
-          <span class="del-icon-label">ナラティブブック</span>
-        </div>
-        <div class="del-icon-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="14" height="10" rx="1.5"/>
-            <line x1="2" y1="7" x2="16" y2="7"/>
-            <circle cx="4.5" cy="5" r="0.8" fill="currentColor" stroke="none"/>
-            <circle cx="6.5" cy="5" r="0.8" fill="currentColor" stroke="none"/>
-            <line x1="6" y1="13" x2="6" y2="16"/>
-            <line x1="12" y1="13" x2="12" y2="16"/>
-            <line x1="4" y1="16" x2="14" y2="16"/>
-          </svg>
-          <span class="del-icon-label">サイト反映</span>
-        </div>
-        <div class="del-icon-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="14" height="11" rx="1.5"/>
-            <line x1="5" y1="6" x2="13" y2="6"/>
-            <line x1="5" y1="9" x2="10" y2="9"/>
-            <line x1="6" y1="13" x2="6" y2="16"/>
-            <line x1="12" y1="13" x2="12" y2="16"/>
-            <line x1="4" y1="16" x2="14" y2="16"/>
-          </svg>
-          <span class="del-icon-label">営業資料</span>
-        </div>
-        <div class="del-icon-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9 L7 6 L7 12 Z"/>
-            <path d="M7 7.5 Q11 5 14 9 Q11 13 7 10.5"/>
-            <circle cx="14" cy="9" r="2"/>
-          </svg>
-          <span class="del-icon-label">発信コンテンツ</span>
-        </div>
+
+      <!-- ベネフィットリスト -->
+      <div class="service-benefits">
+        <p class="service-benefits-label">このサービスで整えること</p>
+        <ul>
+          <li>代表者の考えを、事業紹介の言葉にできる</li>
+          <li>営業・採用・発信の説明がばらつきにくくなる</li>
+          <li>制作チームやAIに渡せる素材が整理される</li>
+        </ul>
       </div>
 
-      <div class="deliverables">
-        <span class="deliverable-tag">スタートガイド</span>
-        <span class="deliverable-tag">ナラティブブック</span>
-        <span class="deliverable-tag">運用ガイド</span>
-        <span class="deliverable-tag">コンテンツサンプル</span>
-        <span class="deliverable-tag">コンテンツサンプル（注釈付き）</span>
-        <span class="deliverable-tag">セッション確認メモ</span>
-        <span class="deliverable-tag">訴求方針チェックリスト</span>
+      <!-- 成果物補足（小さめ） -->
+      <div class="deliverables-note">
+        <p class="deliverables-note-label">必要に応じて整えるもの</p>
+        <p class="deliverables-note-text">ナラティブシート、サイト原稿、営業資料、採用文、インタビュー記事、SNS投稿案、制作指示書</p>
       </div>
       <a href="#contact" class="service-link">サービス詳細・お問い合わせ</a>
     </div>
